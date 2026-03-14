@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Abhishek Sharma — Accounts & Finance Professional</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #F7F3EE;
+  --cream2: #EFE9E0;
+  --cream3: #E8DDD0;
+  --navy: #0F1A2E;
+  --navy2: #1A2B45;
+  --gold: #B8882A;
+  --gold2: #D4A843;
+  --rust: #C45C2A;
+  --sage: #4A6741;
+  --text: #1A1410;
+  --text2: #4A3F35;
+  --muted: #8A7B6E;
+  --border: rgba(15,26,46,0.1);
+  --border2: rgba(184,136,42,0.25);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--cream);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden;}
+
+/* CUSTOM CURSOR */
+.cursor{position:fixed;width:8px;height:8px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform 0.1s;}
+.cursor-ring{position:fixed;width:28px;height:28px;border:1.5px solid rgba(184,136,42,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:left 0.12s ease,top 0.12s ease;}
+body{cursor:none;}
+a,button{cursor:none;}
+
+/* NAV */
+nav {
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:20px 60px;
+  display:flex;justify-content:space-between;align-items:center;
+  background:rgba(247,243,238,0.92);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  transition:all 0.3s;
+}
+nav.scrolled{padding:14px 60px;box-shadow:0 4px 40px rgba(15,26,46,0.06);}
+.nav-logo {
+  font-family:'Playfair Display',serif;
+  font-size:22px;font-weight:700;color:var(--navy);letter-spacing:-0.5px;
+}
+.nav-logo em{color:var(--gold);font-style:normal;}
+.nav-links{display:flex;gap:36px;align-items:center;}
+.nav-links a{
+  font-size:13px;font-weight:500;color:var(--text2);
+  text-decoration:none;letter-spacing:0.03em;
+  transition:color 0.2s;position:relative;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-4px;left:0;right:0;
+  height:1.5px;background:var(--gold);
+  transform:scaleX(0);transition:transform 0.25s;transform-origin:left;
+}
+.nav-links a:hover{color:var(--navy);}
+.nav-links a:hover::after{transform:scaleX(1);}
+.nav-hire{
+  padding:9px 22px;background:var(--navy);color:var(--cream);
+  border:none;border-radius:8px;
+  font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;
+  text-decoration:none;transition:all 0.2s;letter-spacing:0.02em;
+}
+.nav-hire:hover{background:var(--gold);transform:translateY(-1px);}
+
+/* HERO */
+#hero {
+  min-height:100vh;display:flex;align-items:center;
+  padding:120px 60px 80px;
+  position:relative;overflow:hidden;
+}
+.hero-bg-text {
+  position:absolute;right:-20px;top:50%;transform:translateY(-50%);
+  font-family:'Playfair Display',serif;font-size:clamp(120px,18vw,220px);
+  font-weight:900;color:rgba(15,26,46,0.04);line-height:1;
+  white-space:nowrap;pointer-events:none;letter-spacing:-8px;user-select:none;
+}
+.hero-accent-line{
+  position:absolute;left:0;top:0;bottom:0;width:4px;
+  background:linear-gradient(180deg,transparent,var(--gold),var(--rust),transparent);
+}
+.hero-inner{position:relative;z-index:2;max-width:1100px;width:100%;margin:0 auto;}
+.hero-grid-layout{display:grid;grid-template-columns:1fr auto;gap:60px;align-items:center;}
+.hero-left{}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.15em;
+  color:var(--sage);text-transform:uppercase;
+  margin-bottom:28px;
+  background:rgba(74,103,65,0.08);border:1px solid rgba(74,103,65,0.2);
+  padding:6px 14px;border-radius:4px;
+}
+.hero-eyebrow::before{content:'●';font-size:7px;animation:blink 2s infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.2}}
+h1.hero-name {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(52px,7vw,88px);
+  font-weight:900;line-height:0.95;letter-spacing:-3px;
+  margin-bottom:10px;color:var(--navy);
+}
+h1.hero-name .accent{color:var(--gold);}
+.hero-title-bar{
+  display:flex;align-items:center;gap:16px;margin-bottom:28px;
+}
+.hero-title-text{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:clamp(18px,2.5vw,24px);font-weight:400;color:var(--text2);
+}
+.hero-title-line{flex:1;height:1px;background:var(--border2);}
+.hero-desc{
+  font-size:15px;line-height:1.8;color:var(--text2);
+  max-width:520px;margin-bottom:40px;font-weight:300;
+}
+.hero-desc strong{color:var(--text);font-weight:500;}
+.hero-pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px;}
+.hero-pill{
+  padding:5px 14px;border-radius:4px;font-size:12px;font-weight:500;
+  font-family:'DM Mono',monospace;letter-spacing:0.04em;
+}
+.pill-primary{background:var(--navy);color:var(--cream2);}
+.pill-secondary{background:rgba(184,136,42,0.1);border:1px solid var(--border2);color:var(--gold);}
+.pill-tertiary{background:var(--cream2);border:1px solid var(--border);color:var(--text2);}
+.hero-actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap;}
+.btn-gold{
+  padding:14px 32px;background:var(--gold);color:#fff;
+  border:none;border-radius:8px;
+  font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;
+  text-decoration:none;transition:all 0.2s;letter-spacing:0.02em;
+}
+.btn-gold:hover{background:var(--rust);transform:translateY(-2px);box-shadow:0 8px 30px rgba(196,92,42,0.3);}
+.btn-outline{
+  padding:14px 32px;background:transparent;
+  border:1.5px solid var(--navy);color:var(--navy);
+  border-radius:8px;font-family:'DM Sans',sans-serif;
+  font-size:14px;font-weight:500;text-decoration:none;transition:all 0.2s;
+}
+.btn-outline:hover{background:var(--navy);color:var(--cream);transform:translateY(-2px);}
+
+.hero-right{}
+.hero-card{
+  background:var(--navy);border-radius:20px;padding:36px 32px;
+  min-width:280px;position:relative;overflow:hidden;
+}
+.hero-card::before{
+  content:'';position:absolute;top:0;right:0;
+  width:200px;height:200px;
+  background:radial-gradient(circle,rgba(184,136,42,0.15),transparent 70%);
+}
+.hero-card-title{
+  font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.15em;
+  color:rgba(247,243,238,0.4);text-transform:uppercase;margin-bottom:28px;
+}
+.hero-stat{margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid rgba(247,243,238,0.07);}
+.hero-stat:last-of-type{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.hero-stat-num{
+  font-family:'Playfair Display',serif;font-size:40px;font-weight:700;
+  color:var(--gold2);letter-spacing:-1px;line-height:1;margin-bottom:4px;
+}
+.hero-stat-label{font-size:12px;color:rgba(247,243,238,0.55);letter-spacing:0.03em;}
+
+/* MARQUEE */
+.marquee-bar{
+  background:var(--navy);padding:14px 0;overflow:hidden;
+  position:relative;
+}
+.marquee-track{
+  display:flex;gap:0;white-space:nowrap;
+  animation:marquee 22s linear infinite;
+}
+.marquee-item{
+  font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.12em;
+  color:rgba(247,243,238,0.5);text-transform:uppercase;padding:0 32px;
+}
+.marquee-item.gold{color:var(--gold2);}
+.marquee-sep{color:rgba(184,136,42,0.4);padding:0 4px;}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ABOUT */
+#about{padding:100px 60px;position:relative;}
+#about::before{
+  content:'';position:absolute;right:0;top:0;bottom:0;width:42%;
+  background:var(--cream2);z-index:0;
+}
+.about-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1;}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+.section-label{
+  font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:16px;
+  display:flex;align-items:center;gap:10px;
+}
+.section-label::before{content:'';width:32px;height:1px;background:var(--gold);}
+h2.section-heading{
+  font-family:'Playfair Display',serif;font-size:clamp(32px,4vw,52px);
+  font-weight:700;letter-spacing:-1.5px;line-height:1.1;
+  color:var(--navy);margin-bottom:32px;
+}
+h2.section-heading em{font-style:italic;color:var(--gold);}
+.about-text p{
+  font-size:15px;color:var(--text2);line-height:1.85;
+  margin-bottom:18px;font-weight:300;
+}
+.about-text strong{color:var(--text);font-weight:600;}
+.about-info-stack{display:flex;flex-direction:column;gap:0;background:var(--cream);border:1px solid var(--border);border-radius:16px;overflow:hidden;}
+.about-info-row{
+  display:flex;align-items:center;gap:16px;
+  padding:18px 22px;border-bottom:1px solid var(--border);
+  transition:background 0.15s;
+}
+.about-info-row:last-child{border-bottom:none;}
+.about-info-row:hover{background:var(--cream2);}
+.about-info-icon{
+  width:38px;height:38px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:17px;flex-shrink:0;
+}
+.about-info-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:2px;font-family:'DM Mono',monospace;}
+.about-info-val{font-size:13.5px;color:var(--text);font-weight:500;}
+
+/* SKILLS */
+#skills{padding:100px 60px;background:var(--navy);}
+.skills-inner{max-width:1100px;margin:0 auto;}
+#skills .section-label{color:var(--gold2);}
+#skills .section-label::before{background:var(--gold2);}
+#skills h2.section-heading{color:var(--cream);margin-bottom:56px;}
+#skills h2.section-heading em{color:var(--gold2);}
+.skills-main-label{
+  font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.15em;
+  text-transform:uppercase;color:var(--gold2);
+  margin-bottom:20px;display:flex;align-items:center;gap:10px;
+}
+.skills-main-label::after{content:'Core Expertise';font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.05em;}
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px;}
+.skill-card{
+  background:rgba(247,243,238,0.04);
+  border:1px solid rgba(247,243,238,0.08);
+  border-radius:16px;padding:26px;
+  transition:all 0.2s;position:relative;overflow:hidden;
+}
+.skill-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(184,136,42,0.06),transparent);
+  opacity:0;transition:opacity 0.2s;
+}
+.skill-card:hover{
+  border-color:rgba(184,136,42,0.3);
+  transform:translateY(-4px);
+}
+.skill-card:hover::before{opacity:1;}
+.skill-icon{font-size:30px;margin-bottom:14px;}
+.skill-name{
+  font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;
+  color:var(--cream);margin-bottom:8px;
+}
+.skill-desc{font-size:12px;color:rgba(247,243,238,0.45);line-height:1.65;}
+.skill-bar{
+  height:2px;background:rgba(247,243,238,0.08);
+  border-radius:99px;margin-top:18px;overflow:hidden;
+}
+.skill-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--gold),var(--gold2));width:0;transition:width 1s ease;}
+
+.skills-also-label{
+  font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.15em;
+  text-transform:uppercase;color:rgba(247,243,238,0.35);
+  margin-bottom:20px;border-top:1px solid rgba(247,243,238,0.07);
+  padding-top:36px;
+}
+.skills-also-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.skill-also-card{
+  background:rgba(247,243,238,0.03);
+  border:1px solid rgba(247,243,238,0.06);
+  border-radius:12px;padding:18px 16px;
+  transition:all 0.2s;text-align:center;
+}
+.skill-also-card:hover{
+  border-color:rgba(184,136,42,0.25);
+  background:rgba(184,136,42,0.05);
+  transform:translateY(-3px);
+}
+.skill-also-icon{font-size:24px;margin-bottom:8px;}
+.skill-also-name{font-size:12px;color:rgba(247,243,238,0.6);font-weight:500;}
+
+/* EXPERIENCE */
+#experience{padding:100px 60px;background:var(--cream);}
+.exp-inner{max-width:1100px;margin:0 auto;}
+.exp-grid{display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:start;}
+.exp-left{}
+.open-badge{
+  display:inline-flex;align-items:center;gap:10px;
+  background:rgba(74,103,65,0.1);border:1px solid rgba(74,103,65,0.25);
+  border-radius:8px;padding:10px 16px;margin-bottom:28px;
+}
+.open-dot{width:8px;height:8px;background:var(--sage);border-radius:50%;animation:blink 2s infinite;}
+.open-text{font-size:12px;color:var(--sage);font-weight:600;letter-spacing:0.04em;}
+.roles-seeking{display:flex;flex-direction:column;gap:8px;margin-top:28px;}
+.role-tag{
+  padding:9px 14px;background:var(--cream2);
+  border:1px solid var(--border);border-radius:8px;
+  font-size:12px;color:var(--text2);font-weight:500;
+  display:flex;align-items:center;gap:8px;transition:all 0.15s;
+}
+.role-tag:hover{background:var(--navy);color:var(--cream2);border-color:var(--navy);}
+.role-tag.highlight{
+  background:rgba(15,26,46,0.05);border-color:rgba(15,26,46,0.15);
+  color:var(--navy);font-weight:600;
+}
+.role-tag span{color:var(--gold);font-size:10px;}
+.exp-right{}
+.exp-timeline{display:flex;flex-direction:column;gap:0;position:relative;}
+.exp-timeline::before{
+  content:'';position:absolute;left:20px;top:0;bottom:0;
+  width:1px;background:var(--border);
+}
+.exp-item{padding:0 0 48px 56px;position:relative;}
+.exp-item:last-child{padding-bottom:0;}
+.exp-node{
+  position:absolute;left:12px;top:6px;
+  width:18px;height:18px;border-radius:50%;
+  background:var(--cream);border:2px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+}
+.exp-node::after{
+  content:'';width:6px;height:6px;
+  background:var(--gold);border-radius:50%;
+}
+.exp-date{
+  font-family:'DM Mono',monospace;font-size:10.5px;
+  color:var(--gold);letter-spacing:0.08em;margin-bottom:10px;
+}
+.exp-role{
+  font-family:'Playfair Display',serif;font-size:22px;
+  font-weight:700;color:var(--navy);margin-bottom:4px;letter-spacing:-0.5px;
+}
+.exp-company{font-size:13px;color:var(--muted);margin-bottom:18px;font-style:italic;}
+.exp-points{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.exp-points li{
+  font-size:13.5px;color:var(--text2);
+  padding-left:20px;position:relative;line-height:1.65;
+}
+.exp-points li::before{
+  content:'—';position:absolute;left:0;color:var(--gold);
+  font-size:10px;top:5px;
+}
+
+/* INTERESTS */
+#interests{padding:80px 60px;background:var(--cream2);}
+.interests-inner{max-width:1100px;margin:0 auto;}
+.interests-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:0;}
+.interest-card{
+  background:var(--cream);border:1px solid var(--border);border-radius:16px;
+  padding:28px 20px;text-align:center;transition:all 0.2s;
+}
+.interest-card:hover{
+  background:var(--navy);border-color:var(--navy);
+  transform:translateY(-5px);box-shadow:0 20px 40px rgba(15,26,46,0.15);
+}
+.interest-card:hover .interest-name{color:var(--cream);}
+.interest-card:hover .interest-desc{color:rgba(247,243,238,0.5);}
+.interest-icon{font-size:32px;margin-bottom:12px;}
+.interest-name{font-size:13.5px;font-weight:600;color:var(--navy);margin-bottom:6px;}
+.interest-desc{font-size:11.5px;color:var(--muted);line-height:1.5;}
+
+/* CONTACT */
+#contact{padding:100px 60px;background:var(--navy);position:relative;overflow:hidden;}
+#contact::before{
+  content:'';position:absolute;right:-100px;bottom:-100px;
+  width:500px;height:500px;
+  background:radial-gradient(circle,rgba(184,136,42,0.08),transparent 60%);
+  pointer-events:none;
+}
+.contact-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1;}
+#contact .section-label{color:var(--gold2);}
+#contact .section-label::before{background:var(--gold2);}
+#contact h2.section-heading{color:var(--cream);margin-bottom:56px;}
+#contact h2.section-heading em{color:var(--gold2);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+.contact-desc{
+  font-size:15px;color:rgba(247,243,238,0.55);line-height:1.8;
+  font-weight:300;margin-bottom:32px;
+}
+.email-link{
+  display:inline-flex;align-items:center;gap:12px;
+  font-family:'DM Mono',monospace;font-size:13px;
+  color:var(--cream);text-decoration:none;
+  padding:16px 22px;border:1px solid rgba(247,243,238,0.15);
+  border-radius:12px;transition:all 0.2s;
+  background:rgba(247,243,238,0.04);
+}
+.email-link:hover{
+  background:rgba(184,136,42,0.12);
+  border-color:rgba(184,136,42,0.4);color:var(--gold2);
+  transform:translateY(-2px);
+}
+.socials-stack{display:flex;flex-direction:column;gap:12px;}
+.social-item{
+  display:flex;align-items:center;gap:18px;
+  background:rgba(247,243,238,0.04);border:1px solid rgba(247,243,238,0.08);
+  border-radius:14px;padding:18px 22px;text-decoration:none;
+  transition:all 0.2s;position:relative;overflow:hidden;
+}
+.social-item:hover{
+  background:rgba(184,136,42,0.08);border-color:rgba(184,136,42,0.25);
+  transform:translateX(6px);
+}
+.social-item::after{
+  content:'↗';position:absolute;right:20px;top:50%;
+  transform:translateY(-50%);color:rgba(247,243,238,0.2);
+  font-size:16px;transition:all 0.2s;
+}
+.social-item:hover::after{color:var(--gold2);transform:translateY(-50%) translate(2px,-2px);}
+.social-icon-wrap{
+  width:44px;height:44px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;flex-shrink:0;
+}
+.social-name{font-size:14px;font-weight:600;color:var(--cream);margin-bottom:2px;}
+.social-handle{font-size:11px;color:rgba(247,243,238,0.4);font-family:'DM Mono',monospace;}
+
+/* FOOTER */
+footer{
+  background:var(--navy);border-top:1px solid rgba(247,243,238,0.06);
+  padding:28px 60px;display:flex;justify-content:space-between;align-items:center;
+  font-family:'DM Mono',monospace;font-size:11px;color:rgba(247,243,238,0.3);
+  letter-spacing:0.06em;
+}
+footer span{color:var(--gold2);}
+
+/* ANIMATIONS */
+.reveal{opacity:0;transform:translateY(30px);transition:all 0.5s cubic-bezier(0.25,0.46,0.45,0.94);}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-left{opacity:0;transform:translateX(-30px);transition:all 0.5s cubic-bezier(0.25,0.46,0.45,0.94);}
+.reveal-left.visible{opacity:1;transform:translateX(0);}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:16px 24px;}
+  nav.scrolled{padding:12px 24px;}
+  .nav-links{display:none;}
+  #hero{padding:100px 24px 60px;}
+  .hero-grid-layout{grid-template-columns:1fr;gap:40px;}
+  .hero-right{order:-1;}
+  .hero-card{padding:24px;}
+  #about,#skills,#experience,#interests,#contact{padding:70px 24px;}
+  #about::before{display:none;}
+  .about-grid,.exp-grid,.contact-grid{grid-template-columns:1fr;gap:40px;}
+  .skills-grid{grid-template-columns:1fr 1fr;}
+  .skills-also-grid{grid-template-columns:1fr 1fr;}
+  .interests-grid{grid-template-columns:1fr 1fr;}
+  footer{flex-direction:column;gap:8px;padding:24px;text-align:center;}
+}
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="ring"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo">A<em>.</em>Sharma</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact" class="nav-hire">Hire Me</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-text">FINANCE</div>
+  <div class="hero-accent-line"></div>
+  <div class="hero-inner">
+    <div class="hero-grid-layout">
+      <div class="hero-left">
+        <div class="hero-eyebrow">Open to Work &nbsp;·&nbsp; Hyderabad, India</div>
+        <h1 class="hero-name">
+          Abhishek<br/>
+          <span class="accent">Sharma</span>
+        </h1>
+        <div class="hero-title-bar">
+          <span class="hero-title-text">Accounts &amp; Finance Professional</span>
+          <div class="hero-title-line"></div>
+        </div>
+        <p class="hero-desc">
+          <strong>3+ years</strong> of hands-on experience in billing, invoicing, payment collections, ledger reconciliation and financial operations — with additional expertise in <strong>Business Development &amp; Operations</strong>.
+        </p>
+        <div class="hero-pills">
+          <span class="hero-pill pill-primary">Accountant</span>
+          <span class="hero-pill pill-primary">Finance Executive</span>
+          <span class="hero-pill pill-primary">Accounts Manager</span>
+          <span class="hero-pill pill-secondary">Business Development</span>
+          <span class="hero-pill pill-tertiary">Operations</span>
+          <span class="hero-pill pill-tertiary">Collections</span>
+        </div>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-gold">Hire Me</a>
+          <a href="#experience" class="btn-outline">View Experience</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-card">
+          <div class="hero-card-title">By the numbers</div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">3+</div>
+            <div class="hero-stat-label">Years Experience</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">100+</div>
+            <div class="hero-stat-label">Clients Managed</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">PAN</div>
+            <div class="hero-stat-label">India Operations</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-bar">
+  <div class="marquee-track" id="marquee">
+    <span class="marquee-item gold">Tally Prime</span><span class="marquee-sep">·</span>
+    <span class="marquee-item">GST & Taxation</span><span class="marquee-sep">·</span>
+    <span class="marquee-item gold">Accounts Receivable</span><span class="marquee-sep">·</span>
+    <span class="marquee-item">Bank Reconciliation</span><span class="marquee-sep">·</span>
+    <span class="marquee-item gold">Excel & MIS</span><span class="marquee-sep">·</span>
+    <span class="marquee-item">Payment Collections</span><span class="marquee-sep">·</span>
+    <span class="marquee-item gold">Billing & Invoicing</span><span class="marquee-sep">·</span>
+    <span class="marquee-item">Business Development</span><span class="marquee-sep">·</span>
+    <span class="marquee-item gold">Tally Prime</span><span class="marquee-sep">·</span>
+    <span class="marquee-item">GST & Taxation</span><span class="marquee-sep">·</span>
+    <span class="marquee-item gold">Accounts Receivable</span><span class="marquee-sep">·</span>
+    <span class="marquee-item">Bank Reconciliation</span><span class="marquee-sep">·</span>
+    <span class="marquee-item gold">Excel & MIS</span><span class="marquee-sep">·</span>
+    <span class="marquee-item">Payment Collections</span><span class="marquee-sep">·</span>
+    <span class="marquee-item gold">Billing & Invoicing</span><span class="marquee-sep">·</span>
+    <span class="marquee-item">Business Development</span><span class="marquee-sep">·</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-grid">
+      <div class="reveal-left">
+        <div class="section-label">About Me</div>
+        <h2 class="section-heading">Who I <em>Am</em></h2>
+        <div class="about-text">
+          <p>I'm <strong>Abhishek Sharma</strong> — an <strong>Accounts &amp; Finance professional</strong> with 3+ years of hands-on experience in billing, invoicing, payment collections, ledger reconciliation and financial reporting.</p>
+          <p>Originally from <strong>Nagaur, Rajasthan</strong>, I relocated to Hyderabad to build my career. I have managed large-scale accounts, handled overdue recovery, prepared MIS reports and worked closely with finance teams in fast-paced environments.</p>
+          <p>Along with Accounts, I also have strong knowledge of <strong>Business Development, Operations &amp; Client Management</strong> — making me a versatile professional who understands both numbers and business.</p>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="about-info-stack">
+          <div class="about-info-row">
+            <div class="about-info-icon" style="background:rgba(15,26,46,0.06)">📍</div>
+            <div><div class="about-info-label">Location</div><div class="about-info-val">Hyderabad, Telangana</div></div>
+          </div>
+          <div class="about-info-row">
+            <div class="about-info-icon" style="background:rgba(184,136,42,0.08)">🏡</div>
+            <div><div class="about-info-label">Native</div><div class="about-info-val">Nagaur, Rajasthan</div></div>
+          </div>
+          <div class="about-info-row">
+            <div class="about-info-icon" style="background:rgba(74,103,65,0.08)">🎓</div>
+            <div><div class="about-info-label">Education</div><div class="about-info-val">B.Com — Rajasthan University</div></div>
+          </div>
+          <div class="about-info-row">
+            <div class="about-info-icon" style="background:rgba(196,92,42,0.08)">💼</div>
+            <div><div class="about-info-label">Experience</div><div class="about-info-val">3+ Years in Finance & Accounts</div></div>
+          </div>
+          <div class="about-info-row">
+            <div class="about-info-icon" style="background:rgba(79,142,247,0.08)">🌐</div>
+            <div><div class="about-info-label">Languages</div><div class="about-info-val">Hindi · English · Rajasthani</div></div>
+          </div>
+          <div class="about-info-row">
+            <div class="about-info-icon" style="background:rgba(184,136,42,0.08)">✅</div>
+            <div><div class="about-info-label">Status</div><div class="about-info-val" style="color:#4A6741;font-weight:600;">Actively Open to Work</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="skills-inner">
+    <div class="section-label reveal">Skills</div>
+    <h2 class="section-heading reveal">My <em>Expertise</em></h2>
+    <div class="skills-main-label reveal"></div>
+    <div class="skills-grid reveal">
+      <div class="skill-card">
+        <div class="skill-icon">🧾</div>
+        <div class="skill-name">Tally Prime</div>
+        <div class="skill-desc">Billing, invoicing, payment entries, BRS & ledger management in Tally Prime & ERP 9.</div>
+        <div class="skill-bar"><div class="skill-fill" data-w="92"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">📊</div>
+        <div class="skill-name">GST & Taxation</div>
+        <div class="skill-desc">GST invoicing, GSTR filing support, TDS basics, e-way bills and tax reconciliation.</div>
+        <div class="skill-bar"><div class="skill-fill" data-w="80"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">💰</div>
+        <div class="skill-name">AR & Collections</div>
+        <div class="skill-desc">Accounts receivable management, overdue follow-ups, high-value recovery and payment tracking.</div>
+        <div class="skill-bar"><div class="skill-fill" data-w="95"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🔄</div>
+        <div class="skill-name">BRS & Ledger Reconciliation</div>
+        <div class="skill-desc">Bank statement matching, customer ledger reconciliation, payment receipt entries.</div>
+        <div class="skill-bar"><div class="skill-fill" data-w="88"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">📋</div>
+        <div class="skill-name">Excel & Data Management</div>
+        <div class="skill-desc">Advanced Excel — VLOOKUP, UNIQUE, FILTER, pivot tables, payment trackers and dashboards.</div>
+        <div class="skill-bar"><div class="skill-fill" data-w="87"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">📈</div>
+        <div class="skill-name">MIS Reporting</div>
+        <div class="skill-desc">Weekly & monthly MIS reports — overdue, delay payment, billing status and financial summaries.</div>
+        <div class="skill-bar"><div class="skill-fill" data-w="85"></div></div>
+      </div>
+    </div>
+    <div class="skills-also-label reveal">Additional Knowledge</div>
+    <div class="skills-also-grid reveal">
+      <div class="skill-also-card">
+        <div class="skill-also-icon">🌐</div>
+        <div class="skill-also-name">Web Dev with AI</div>
+      </div>
+      <div class="skill-also-card">
+        <div class="skill-also-icon">🤖</div>
+        <div class="skill-also-name">Prompt Engineering</div>
+      </div>
+      <div class="skill-also-card">
+        <div class="skill-also-icon">📊</div>
+        <div class="skill-also-name">Dashboard Creation</div>
+      </div>
+      <div class="skill-also-card">
+        <div class="skill-also-icon">💸</div>
+        <div class="skill-also-name">Collections & Recovery</div>
+      </div>
+      <div class="skill-also-card">
+        <div class="skill-also-icon">🤝</div>
+        <div class="skill-also-name">Client Relations & CRM</div>
+      </div>
+      <div class="skill-also-card">
+        <div class="skill-also-icon">🚀</div>
+        <div class="skill-also-name">Sales Dashboards</div>
+      </div>
+      <div class="skill-also-card">
+        <div class="skill-also-icon">📉</div>
+        <div class="skill-also-name">Financial Analysis</div>
+      </div>
+      <div class="skill-also-card">
+        <div class="skill-also-icon">🗂️</div>
+        <div class="skill-also-name">Operations Mgmt</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="exp-inner">
+    <div class="exp-grid">
+      <div class="reveal-left">
+        <div class="section-label">Career</div>
+        <h2 class="section-heading">My <em>Journey</em></h2>
+        <div class="open-badge">
+          <div class="open-dot"></div>
+          <div class="open-text">Actively Looking</div>
+        </div>
+        <p style="font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:24px;font-weight:300;">Seeking roles in Accounts, Finance & Billing where I can contribute with hands-on experience.</p>
+        <div class="roles-seeking">
+          <div class="role-tag highlight"><span>★</span> Accountant</div>
+          <div class="role-tag highlight"><span>★</span> Accounts Executive</div>
+          <div class="role-tag highlight"><span>★</span> Finance Executive</div>
+          <div class="role-tag highlight"><span>★</span> Billing Executive</div>
+          <div class="role-tag">Business Development</div>
+          <div class="role-tag">Operations Executive</div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="exp-timeline">
+          <div class="exp-item">
+            <div class="exp-node"></div>
+            <div class="exp-date">2022 – Present</div>
+            <div class="exp-role">Accounts & Finance Executive</div>
+            <div class="exp-company">IT Services Company · Hyderabad, Telangana</div>
+            <ul class="exp-points">
+              <li>Managed billing and invoicing for 100+ client accounts — monthly & quarterly billing cycles</li>
+              <li>Handled payment collections, overdue follow-ups and recovery for high-value accounts</li>
+              <li>Performed bank reconciliation, customer ledger matching and payment receipt entries</li>
+              <li>Prepared weekly & monthly MIS reports — overdue reports, delay payment reports, billing status</li>
+              <li>Entered and verified order details — PO, asset serial numbers, billing dates in accounting software</li>
+              <li>Coordinated with Sales, CRM and Operations teams for billing closure and dispute resolution</li>
+              <li>Also handled Business Development, client onboarding and account management</li>
+            </ul>
+          </div>
+          <div class="exp-item">
+            <div class="exp-node"></div>
+            <div class="exp-date">2021 – 2022</div>
+            <div class="exp-role">Accounts & Operations Associate</div>
+            <div class="exp-company">Early Career · Rajasthan → Hyderabad</div>
+            <ul class="exp-points">
+              <li>Relocated from Nagaur, Rajasthan to Hyderabad — quickly adapted to new work environment</li>
+              <li>Supported accounts team in data entry, payment tracking and vendor coordination</li>
+              <li>Built strong foundation in billing, collections and finance operations</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERESTS -->
+<section id="interests">
+  <div class="interests-inner">
+    <div class="section-label reveal">Personal</div>
+    <h2 class="section-heading reveal">Beyond <em>Work</em></h2>
+    <div class="interests-grid reveal">
+      <div class="interest-card">
+        <div class="interest-icon">📈</div>
+        <div class="interest-name">Trading</div>
+        <div class="interest-desc">Stock market · ICT & SMC strategies</div>
+      </div>
+      <div class="interest-card">
+        <div class="interest-icon">💪</div>
+        <div class="interest-name">Fitness</div>
+        <div class="interest-desc">Home workout · Discipline & consistency</div>
+      </div>
+      <div class="interest-card">
+        <div class="interest-icon">🗣️</div>
+        <div class="interest-name">English</div>
+        <div class="interest-desc">Self improvement & communication</div>
+      </div>
+      <div class="interest-card">
+        <div class="interest-icon">🏔️</div>
+        <div class="interest-name">Travel</div>
+        <div class="interest-desc">Rajasthan roots · Exploring new cities</div>
+      </div>
+      <div class="interest-card">
+        <div class="interest-icon">🌐</div>
+        <div class="interest-name">Web Dev with AI</div>
+        <div class="interest-desc">Building web apps & tools using AI</div>
+      </div>
+      <div class="interest-card">
+        <div class="interest-icon">🤖</div>
+        <div class="interest-name">Prompt Engineering</div>
+        <div class="interest-desc">AI prompts · ChatGPT & Claude</div>
+      </div>
+      <div class="interest-card">
+        <div class="interest-icon">📊</div>
+        <div class="interest-name">Dashboard Creation</div>
+        <div class="interest-desc">KPI tracking · Business dashboards</div>
+      </div>
+      <div class="interest-card">
+        <div class="interest-icon">🚀</div>
+        <div class="interest-name">Sales & Collections</div>
+        <div class="interest-desc">B2B sales · Payment recovery</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="section-label reveal">Get In Touch</div>
+    <h2 class="section-heading reveal">Let's <em>Connect</em></h2>
+    <div class="contact-grid">
+      <div class="reveal-left">
+        <p class="contact-desc">I'm open to full-time Accounts & Finance roles, or any opportunity where my skills can add value. Feel free to reach out — I respond quickly!</p>
+        <a href="mailto:sharmaabhishekkumar009@gmail.com" class="email-link">
+          ✉️ &nbsp;sharmaabhishekkumar009@gmail.com
+        </a>
+      </div>
+      <div class="socials-stack reveal">
+        <a href="https://www.linkedin.com/in/abhishek-sharma-063016229" target="_blank" class="social-item">
+          <div class="social-icon-wrap" style="background:rgba(10,102,194,0.12)">💼</div>
+          <div><div class="social-name">LinkedIn</div><div class="social-handle">Abhishek Sharma</div></div>
+        </a>
+        <a href="https://www.instagram.com/ar_sharma_.1" target="_blank" class="social-item">
+          <div class="social-icon-wrap" style="background:rgba(225,48,108,0.1)">📸</div>
+          <div><div class="social-name">Instagram</div><div class="social-handle">@ar_sharma_.1</div></div>
+        </a>
+        <a href="https://www.facebook.com/share/1B8QH8ADNq/" target="_blank" class="social-item">
+          <div class="social-icon-wrap" style="background:rgba(24,119,242,0.1)">📘</div>
+          <div><div class="social-name">Facebook</div><div class="social-handle">Abhishek Sharma</div></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>Designed & Built · Abhishek Sharma</span>
+  <span>Accounts & Finance Professional · Hyderabad © 2025</span>
+</footer>
+
+<script>
+// Custom Cursor
+const cur = document.getElementById('cursor'), ring = document.getElementById('ring');
+let mx=0,my=0;
+document.addEventListener('mousemove', e => {
+  mx=e.clientX; my=e.clientY;
+  cur.style.left=mx+'px'; cur.style.top=my+'px';
+  ring.style.left=mx+'px'; ring.style.top=my+'px';
+});
+document.querySelectorAll('a,button').forEach(el => {
+  el.addEventListener('mouseenter', () => { cur.style.transform='translate(-50%,-50%) scale(2.5)'; cur.style.opacity='0.5'; });
+  el.addEventListener('mouseleave', () => { cur.style.transform='translate(-50%,-50%) scale(1)'; cur.style.opacity='1'; });
+});
+
+// Scrolled nav
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Reveal on scroll
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal,.reveal-left').forEach(r => obs.observe(r));
+
+// Skill bars animate on reveal
+const skillObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.skill-fill').forEach(bar => {
+        bar.style.width = bar.dataset.w + '%';
+      });
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.skills-grid').forEach(g => skillObs.observe(g));
+
+// Counter animation
+function animateCounter(el, target, suffix=''){
+  let cur=0; const inc=Math.ceil(target/40);
+  const t = setInterval(() => {
+    cur += inc;
+    if(cur >= target){ cur=target; clearInterval(t); }
+    el.textContent = cur + suffix;
+  }, 40);
+}
+</script>
+</body>
+</html>
